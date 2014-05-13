@@ -1,0 +1,37 @@
+@(loginForm: Form[UserLogIn])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("log in") {
+    
+    @helper.form(action = routes.SignUp.submitLogin) {
+        
+        <fieldset>
+            <legend>Log in as an existing user:</legend>
+            
+            @inputText(
+                loginForm("username"), 
+                '_label -> "Username", 
+                '_help -> "Please choose a valid username."
+               
+            )
+            @inputPassword(
+                loginForm("password"), 
+                '_label -> "Password",
+                '_help -> "A password must be at least 4 characters. "
+            )
+            
+       
+        </fieldset>
+        
+        <div class="actions">
+        
+            <input type="submit" class="btn primary" value="Log In">
+            
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+        
+    }
+    
+}

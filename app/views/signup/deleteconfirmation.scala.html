@@ -1,0 +1,16 @@
+@(username: String)
+@main("Confirm") {
+        <fieldset>
+            <legend>Yes Delete My Account</legend>
+			    <p>
+			        <a class="btn" href="@routes.SignUp.delete(username)">Delete »</a>
+			    </p>
+    </fieldset>
+    
+    <fieldset>
+            <legend>No Do Not Delete</legend>
+			    <p>
+			        <a class="btn" href="@routes.Application.index">Cancel »</a>
+			    </p>
+   </fieldset>
+}

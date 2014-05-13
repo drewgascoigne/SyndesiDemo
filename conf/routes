@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Signup
+GET     /signup                     controllers.SignUp.form
+POST    /signup                     controllers.SignUp.save
+
+GET     /login                      controllers.SignUp.formLogin
+POST 	/login						controllers.SignUp.submitLogin
+
+GET     /confirm/:id/:op                controllers.SignUp.formConfirm(id: String, op: Int)
+POST 	/confirm/:tempcode/:id/:op			controllers.SignUp.submitConfirmation(tempcode: String, id: String, op: Int)
+
+GET    /user/:id/delete       		controllers.SignUp.delete(id: String)
+GET    /user/:id/edit       		controllers.SignUp.edit(id: String)
+POST   /user/:id/save				controllers.SignUp.update(id: Int)
+GET    /users						controllers.SignUp.displayusers
+GET	   /cancelEdit/:id				controllers.SignUp.cancelEdit(id: Int)
+#GET    /user/:user/email       		controllers.SignUp.email(user: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

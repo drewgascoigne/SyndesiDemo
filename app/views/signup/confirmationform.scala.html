@@ -1,0 +1,29 @@
+@(confirmationForm: Form[String], tempcode: String, id: String, op: Int)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Confirmation") {
+    
+    @helper.form(action = routes.SignUp.submitConfirmation(tempcode, id, op)) {
+        
+        <fieldset>
+            <legend>Enter Confirmation Code:</legend>
+            
+            @inputText(
+                confirmationForm("code"), 
+                '_label -> "Code"              
+            )
+      
+        </fieldset>
+        
+        <div class="actions">
+        
+            <input type="submit" class="btn primary" value="Confirm">
+            
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+        
+    }
+    
+}

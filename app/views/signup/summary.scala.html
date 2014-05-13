@@ -1,0 +1,45 @@
+@(user: User)
+
+@main("Summary") {
+    <fieldset>
+            <legend>Return to Main Page</legend>
+			    <p>
+			        <a class="btn" href="@routes.Application.index">Home »</a>
+			    </p>
+    </fieldset>
+    <fieldset>
+       <legend>Your Account Information:</legend>
+    
+		    <fieldset>
+		       <legend>Username:</legend>
+				    <p>
+				        @user.username
+				    </p>
+		    </fieldset>
+		    <fieldset>
+		       <legend>Email:</legend>
+				    <p>
+				        @user.email
+				    </p>
+		    </fieldset>
+		    <fieldset>
+		       <legend>Password:</legend>
+				    <p>
+				        @user.password
+				    </p>
+		    </fieldset>
+     </fieldset>
+    <fieldset>
+            <legend>Edit Account Information</legend>
+			    <p>
+			        <a class="btn" href="@routes.SignUp.formConfirm(user.username, 1)">Edit My Account »</a>
+			    </p>
+    </fieldset>
+     <fieldset>
+            <legend>Delete User</legend>
+			    <p>
+			        <a class="btn" href="@routes.SignUp.formConfirm(user.username, 2)">Delete My Account »</a>
+			    </p>
+    </fieldset>
+    
+}
